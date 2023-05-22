@@ -10,10 +10,6 @@ mem-per-cpu: 8000 # 127500 MB total (~ 125 GB)
 time: 400
 sbatch_args:
   gres: "gpu:1"
-  container-image: ./../../../bdl_container.sqsh
-  container-mounts: ./../..:/work,/etc/slurm/task_prolog:/etc/slurm/task_prolog
-  container-workdir: /work/experiments/camelyon
-  container-writable: ""
 
 ---
 name: "DEFAULT"
@@ -25,7 +21,6 @@ reps_in_parallel: 1
 params:
   batch_size: 32
   #data_path: "../../data/"
-  data_path: "/mnt/d/Uni/Bachelorarbeit/linux/data"
   epochs: 5
   use_amp: True
   eval_samples: 10
